@@ -1,0 +1,26 @@
+#Russian
+Упражнения
+Чтобы действительно получить хорошее представление об обсуждаемых концепциях, было создано несколько упражнений. Рекомендуется проработать их, прежде чем переходить к следующему уроку, дабы убедиться, что вы всё хорошо «переварили».
+
+Задание №1
+Попробуйте нарисовать 2 треугольника рядом друг с другом с помощью функции glDrawArrays(), добавив больше вершин к вашим данным.
+
+Задание №2
+Теперь создайте те же 2 треугольника, используя два разных VAO и VBO для своих данных.
+
+Задание №3
+Создайте две шейдерные программы, где вторая программа использует другой фрагментный шейдер, который выводит желтый цвет; нарисуйте оба треугольника снова, где один из них будет иметь желтый цвет.
+
+#English
+
+Exercises
+To really get a good understanding of the concepts discussed, several exercises have been created. It is recommended that you work through them before moving on to the next lesson to make sure you have a good "digestion" of everything.
+
+Assignment #1
+Try drawing 2 triangles next to each other using glDrawArrays(), adding more vertices to your data.
+
+Task #2
+Now create the same 2 triangles using two different VAO and VBO for your data.
+
+Assignment #3
+Create two shader programs, where the second program uses a different fragment shader that outputs yellow; draw both triangles again, where one of them will be yellow.
