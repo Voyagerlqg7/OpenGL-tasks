@@ -29,7 +29,13 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "OpenGL for Ravesli.com", NULL, NULL);
+    /*
+    #ifdef __APPLE__
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    #endif
+    */
+
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -83,10 +89,18 @@ int main()
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
+
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f, // левая вершина
-         0.5f, -0.5f, 0.0f, // правая вершина
-         0.0f,  0.5f, 0.0f  // верхняя вершина   
+
+        // First triangle
+        -0.9f, -0.5f, 0.0f,  
+        -0.0f, -0.5f, 0.0f,  
+        -0.45f, 0.5f, 0.0f,  
+
+        // Second triangle
+         0.0f, -0.5f, 0.0f,  
+         0.9f, -0.5f, 0.0f,  
+         0.45f, 0.5f, 0.0f   
     };
 
     unsigned int VBO, VAO;
@@ -106,7 +120,8 @@ int main()
     glBindVertexArray(0);
 
 
-
+    
+    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -117,7 +132,7 @@ int main()
 
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO); 
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, 6); 
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -129,13 +144,11 @@ int main()
     glfwTerminate();
     return 0;
 }
-
 void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }
-
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
